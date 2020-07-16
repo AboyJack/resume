@@ -1,6 +1,6 @@
 <template>
   <div>
-    子组件2
+    123123
   </div>
 </template>
 <script>
