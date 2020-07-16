@@ -6,11 +6,11 @@ import ResumeIndex from '@/pages'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  mode: 'hash',
   routes: [
     {
       path: '/',
-      name: '',
+      name: 'resume',
       component: ResumeIndex
     }
   ]
