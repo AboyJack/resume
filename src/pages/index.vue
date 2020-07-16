@@ -1,6 +1,6 @@
 <template>
   <div>
-    123123
+    PERSONAL RESUME
   </div>
 </template>
 <script>
