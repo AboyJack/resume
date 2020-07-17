@@ -1,0 +1,64 @@
+@import url("//fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300");
+@import "./mixin";
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  @include custom-font-family($f-sans-serif);
+  font-size: 13px;
+  background-color: #ffffff;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+
+.iconfont {
+  font-size: 20px;
+  color: $-font-title;  
+}
+
+@mixin a-hover {
+  // text-decoration: underline; 
+  color: $-font-color;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  &:hover { 
+    @include a-hover;
+    i {
+      @include a-hover;
+    }
+  }
+  &:active {
+    color: $-primary-8;
+    i {
+      color: $-primary-8;
+    }
+  }
+}

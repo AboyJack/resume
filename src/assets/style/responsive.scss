@@ -1,0 +1,53 @@
+@import "./matching", "./mixin";
+/*
+* 响应式布局
+*/
+
+$size-12: 12px;
+$size-13: 13px;
+$size-13: 13px;
+$size-13: 13px;
+
+// 媒体类型（mediaType ）
+$media-all: all; // 用于所有设备
+$media-screen: screen; // 用于电脑屏幕，平板电脑，智能手机等。(最常用)
+$media-print: print; // 用于打印机和打印预览
+$media-speech: speech; // 应用于屏幕阅读器等发声设备
+
+// 媒体功能（media feature）
+// max-width 定义输出设备中的页面最大可见区域宽度
+// min-width 定义输出设备中的页面最小可见区域宽度
+$media-max: max-width;
+$media-min: min-width;
+$media-width: width;
+
+$w-500: 500px;
+$w-768: 768px;
+$w-1000: 1000px;
+
+@function px-rem($px) {
+  @return $px / $base-font-size * 1rem;
+}
+
+@media #{$media-screen} {
+  body {
+    @media($media-max: $w-500) {
+      background-color: $-primary-5;
+      .resume-header {
+        .download-list {
+          text-align: right;
+          padding-right: px-rem(50);
+          &:before {
+            border-left-width: 0px;
+          }
+        }
+      }
+    }
+    @media ($media-min:$w-500) and ($media-max:$w-768){
+      // background-color: $-primary-2;
+    }
+    @media ($media-width: $w-1000) {
+      // background-color: $-primary-7;
+    }
+  }
+}

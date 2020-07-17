@@ -1,11 +1,15 @@
 <template>
-  <div></div>
+  <div>
+    <top-header></top-header>
+  </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {}
+  import topHeader from '../components/top-header'
+  export default {
+    components: { topHeader },
+    data () {
+      return {}
+    }
   }
-}
 </script>

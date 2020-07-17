@@ -1,0 +1,54 @@
+
+/*
+* 自定义字体混入
+*/
+$f-sans-serif: Helvetica Neue, Open Sans, sans-serif; // 无衬线字体，即笔画结尾是平滑的字体。
+$f-consolas: consolas, "Liberation Mono", courier, monospace; // 等宽字体，即字体中每个字宽度相同。
+$f-code-pro: Source Code Pro, monospace;
+$f-consolas-andale: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+
+@mixin custom-font-family($value) {
+  font-family: $value;
+}
+
+/*
+* box-shadow
+*/
+@mixin box-shadow($values...) {
+  -moz-box-shadow: $values;
+  -webkit-box-shadow: $values;
+  box-shadow: $values;
+}
+// .shadows {
+//   @include box-shadow(0px 4px 5px #666, 2px 6px 10px #999);
+// }
+
+@mixin border-bottom-split {
+  border-bottom: 1px solid $-split-color;
+  // @include box-shadow(0px 0px 1px $-split-color);
+}
+
+/*
+* color 
+*/
+@mixin colors($text, $background, $border) {
+  color: $text;
+  background-color: $background;
+  border-color: $border;
+}
+// $values: #ff0000, #00ff00, #0000ff;
+// .primary {
+//   @include colors($values...);
+// }
+
+/*
+* 自适应移动端大小 px 转 rem
+*/
+$base-font-size: 37.5 !default; // 基于视觉稿横屏尺寸/100得出的基准font-size
+// @function px-rem($px) {
+//   @return $px / $base-font-size * 1rem;
+// }
+
+// .color-hh {
+//   font-size: px-rem(20);
+// }
