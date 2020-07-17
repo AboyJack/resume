@@ -1,10 +1,11 @@
 <template>
-  <div>
-    PERSONAL RESUME
-  </div>
+  <div></div>
 </template>
-<script>
-  export default {
 
+<script>
+export default {
+  data() {
+    return {};
   }
+};
 </script>
