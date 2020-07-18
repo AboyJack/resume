@@ -32,7 +32,7 @@ $w-1000: 1000px;
 @media #{$media-screen} {
   body {
     @media($media-max: $w-500) {
-      background-color: $-primary-5;
+      background-color: white;
       .resume-header {
         .download-list {
           text-align: right;

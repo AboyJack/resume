@@ -6,6 +6,8 @@ $f-sans-serif: Helvetica Neue, Open Sans, sans-serif; // 无衬线字体，即�
 $f-consolas: consolas, "Liberation Mono", courier, monospace; // 等宽字体，即字体中每个字宽度相同。
 $f-code-pro: Source Code Pro, monospace;
 $f-consolas-andale: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+$f-montserrat: montserrat;
+$f-m-s-s: montserrat, sans-serif;
 
 @mixin custom-font-family($value) {
   font-family: $value;
