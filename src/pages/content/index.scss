@@ -1,0 +1,82 @@
+@import "~@/assets/style/index.scss";
+$content-height: px-rem(120);
+.content {
+  position: relative;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  height: calc(100% - #{$content-height});
+  // @include scroll-bar;
+}
+.resume-content {
+  padding-top: 30px;
+  @mixin resume-content {
+    padding: 0 px-rem(50);
+    color: $-font-color;
+  }
+  @mixin split-line-before {
+    &:before {
+      display: block;
+      content: "";
+      background: -webkit-linear-gradient(
+        left,
+        #dfe2e7 80%,
+        rgba(223, 226, 231, 0) 100%
+      );
+      @include box-shadow(0 1px 0 rgba(255, 255, 255, 0.4));
+      height: 1px;
+      position: relative;
+      width: 100%;
+      left: -20px;
+      top: -15px;
+    }
+  }
+  &:not(:first-child) {
+    @include split-line-before;
+  }
+  &__title {
+    font-size: px-rem(38);
+    font-weight: bold;
+    @include resume-content;
+    @include custom-font-family($f-montserrat);
+  }
+  &__subtitle {
+    @extend .resume-content__title;
+    padding-top: px-rem(20);
+    font-size: px-rem(30);
+  }
+  &__text {
+    @include resume-content;
+    padding-top: 20px;
+    line-height: 20px;
+    @include custom-font-family($f-sans-serif);
+  }
+}
+@media screen and ($media-min:$w-1000){
+  .resume-content__text,
+  .resume-content__title,
+  .resume-content__subtitle{
+    padding: 0px 40px;
+  }
+  .resume-content__subtitle{
+    padding-top: 8px;
+  }
+  .resume-content__text {
+    padding-top: 15px;
+  }
+}
+
+// @media screen {
+//     @media($media-max: $w-500) {
+      
+//     }
+//     @media ($media-min:$w-500) and ($media-max:$w-768){
+
+//     }
+//     @media ($media-width: $w-1000) {
+//       .resume-content__text {
+//         padding: 0px 40px;
+//         padding-top: 20px;
+//         line-height: 20px;
+//       }
+//     }
+// }

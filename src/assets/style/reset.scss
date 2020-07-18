@@ -21,14 +21,17 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   vertical-align: baseline;
 }
 
-html {
+html,#app {
   overflow-x: hidden;
+  height: 100%;
+  width: 100%;
 }
 
 body {
   @include custom-font-family($f-sans-serif);
   font-size: 13px;
   background-color: #ffffff;
+  @extend html;
 }
 
 table {

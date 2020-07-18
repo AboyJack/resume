@@ -44,10 +44,8 @@ $w-1000: 1000px;
       }
     }
     @media ($media-min:$w-500) and ($media-max:$w-768){
-      // background-color: $-primary-2;
     }
     @media ($media-width: $w-1000) {
-      // background-color: $-primary-7;
     }
   }
 }

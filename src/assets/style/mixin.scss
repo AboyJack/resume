@@ -54,3 +54,36 @@ $base-font-size: 37.5 !default; // 基于视觉稿横屏尺寸/100得出的基�
 // .color-hh {
 //   font-size: px-rem(20);
 // }
+/*
+* 滚动条自定义样式设置
+* 注意mac chrome的滚动条默认宽度为 15px 而 windows chrome滚动条宽度为 17px
+* https://codepen.io/sambible/post/browser-scrollbar-widths
+*/
+@mixin scroll-bar($bg-color: $-font-title, $border-color: white) {
+  &::-webkit-scrollbar {  /*滚动条整体样式*/
+    width: .5em;
+    height: .5em;
+  }
+
+  &::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: $bg-color;
+    // border: 1px solid $border-color;
+  }
+
+  &::-webkit-scrollbar-track { /*滚动条里面轨道*/
+    border: 0 solid transparent;
+    // background-color: $bg-color;
+  }
+
+  &::-webkit-scrollbar-corner { /*边角，即两个滚动条的交汇处*/
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-button { /*滚动条的轨道的两端按钮，允许通过点击微调小方块的位置。*/
+    width: 0;
+    height: 0;
+    display: none;
+  }
+}

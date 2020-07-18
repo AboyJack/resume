@@ -1,17 +1,23 @@
 <template>
-  <div>
+  <section class="app">
     <top-header></top-header>
     <resume-content></resume-content>
-  </div>
+  </section>
 </template>
 
 <script>
-import topHeader from './top-header/index'
-import resumeContent from './content/index'
-export default {
-  components: { topHeader, resumeContent },
-  data() {
-    return {}
+  import topHeader from './top-header/index'
+  import resumeContent from './content/index'
+  export default {
+    components: { topHeader, resumeContent },
+    data () {
+      return {}
+    }
   }
-}
 </script>
+<style lang="scss" scoped>
+  .app {
+    height: 100%;
+    width: 100%;
+  }
+</style>
