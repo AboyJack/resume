@@ -1,5 +1,5 @@
 @import url("//fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300");
-@import "./mixin";
+@import "./mixin", "./responsive";
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, 
@@ -53,16 +53,18 @@ table {
 
 a {
   text-decoration: none;
-  &:hover { 
-    @include a-hover;
-    i {
-      @include a-hover;
-    }
-  }
   &:active {
     color: $-primary-8;
     i {
       color: $-primary-8;
+    }
+  }
+  @media screen and ($media-min:$w-500){
+    &:hover { 
+      @include a-hover;
+      i {
+        @include a-hover;
+      }
     }
   }
 }
