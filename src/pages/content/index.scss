@@ -34,7 +34,7 @@ $content-height: px-rem(120);
     @include split-line-before;
   }
   &__title {
-    font-size: px-rem(38);
+    font-size: px-rem(40);
     font-weight: bold;
     @include resume-content;
     @include custom-font-family($f-montserrat);
@@ -42,7 +42,7 @@ $content-height: px-rem(120);
   &__subtitle {
     @extend .resume-content__title;
     padding-top: px-rem(20);
-    font-size: px-rem(30);
+    font-size: px-rem(32);
   }
   &__text {
     @include resume-content;
@@ -52,31 +52,18 @@ $content-height: px-rem(120);
   }
 }
 @media screen and ($media-min:$w-1000){
-  .resume-content__text,
-  .resume-content__title,
-  .resume-content__subtitle{
+  .pc-content__text {
     padding: 0px 40px;
   }
+  .resume-content__title{
+    @extend .pc-content__text;
+  }
   .resume-content__subtitle{
+    @extend .pc-content__text;
     padding-top: 8px;
   }
   .resume-content__text {
+    @extend .pc-content__text;
     padding-top: 15px;
   }
 }
-
-// @media screen {
-//     @media($media-max: $w-500) {
-      
-//     }
-//     @media ($media-min:$w-500) and ($media-max:$w-768){
-
-//     }
-//     @media ($media-width: $w-1000) {
-//       .resume-content__text {
-//         padding: 0px 40px;
-//         padding-top: 20px;
-//         line-height: 20px;
-//       }
-//     }
-// }
