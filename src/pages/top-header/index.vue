@@ -1,26 +1,58 @@
 <template>
   <div class="resume-header">
     <h1>{{title}}</h1>
-    <div class="download-list">
+    <div class="download-list"
+         ref="downloadList">
       <a @click="downloadPDF">
         <i class="iconfont iconpdf"></i>PDF
       </a>
     </div>
+    <!-- <pdf></pdf> -->
   </div>
 </template>
 <script>
   // import pdfFile from '@/assets/file/resume.pdf'
-  import download from '@/utils/download'
+  // import pdf from 'vue-pdf'
+  // import pdf from '@/components/pdf';
+  // import download from '@/utils/download'
+  import axios from 'axios'
   export default {
     name: 'top-header',
+    components: {
+      // pdf
+    },
+    // created () {
+    //   this.pdfSrc = pdf.createLoadingTask(this.pdfSrc)
+    //   console.log(this.pdfSrc)
+    // },
     data () {
       return {
-        title: 'PERSONAL RESUME'
+        title: 'PERSONAL RESUME',
+        pdfSrc: 'https://github.com/AboyJack/resume/raw/master/src/assets/file/resume.pdf',
+        htmlTitle: 'PERSONAL RESUME',
+        pdfElement: '#app'
+        // pdfSrc: 'https://raw.githubusercontent.com/AboyJack/resume/master/src/assets/file/resume.pdf'
       }
     },
     methods: {
       downloadPDF () {
-        download('../../assets/file/resume.pdf', 'PERSONAL RESUME.pdf')
+        // download(this.pdfSrc, 'PERSONAL RESUME.pdf')
+        // this.exportSavePdf()
+        axios.post(this.pdfSrc, {
+          responseType: 'blob'
+        }).then(res => {
+          let ele = document.createElement('a')
+          ele.download = 'PERSONAL RESUME.pdf' // 下载的名称
+          // ele.target = target // 规定在何处打开链接文档
+          ele.style.display = 'none'
+          // 字符内容转变成blob地址 Blob用法 https://developer.mozilla.org/zh-CN/docs/Web/API/Blob
+          let blob = new Blob([res.data])
+          ele.href = URL.createObjectURL(blob)
+          // console.log(blob, ele)
+          document.body.appendChild(ele)
+          ele.click()
+          document.body.removeChild(ele)
+        })
       }
     }
   }
