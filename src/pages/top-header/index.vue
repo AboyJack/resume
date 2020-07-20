@@ -28,7 +28,8 @@
     data () {
       return {
         title: 'PERSONAL RESUME',
-        pdfSrc: 'https://github.com/AboyJack/resume/raw/master/src/assets/file/resume.pdf',
+        // pdfSrc: 'https://github.com/AboyJack/resume/raw/master/src/assets/file/resume.pdf',
+        pdfSrc: 'https://raw.githubusercontent.com/AboyJack/resume/master/src/assets/file/resume.pdf',
         htmlTitle: 'PERSONAL RESUME',
         pdfElement: '#app'
         // pdfSrc: 'https://raw.githubusercontent.com/AboyJack/resume/master/src/assets/file/resume.pdf'
