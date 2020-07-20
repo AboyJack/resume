@@ -2,7 +2,7 @@
   <div class="content">
     <template v-for="i of contentList">
       <div class="resume-content" :key="i.id">
-        <div class="resume-content__title">{{i.title}}</div>
+        <div class="resume-content__title" v-if="i.title">{{i.title}}</div>
         <div class="resume-content__subtitle" v-if="i.subtitle">{{i.subtitle}}</div>
         <template v-if="i.textList && i.textList.length">
           <list-render :data="i.textList" :render="render" />
