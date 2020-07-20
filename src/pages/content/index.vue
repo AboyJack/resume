@@ -3,7 +3,7 @@
     <template v-for="i of contentList">
       <div class="resume-content" :key="i.id">
         <div class="resume-content__title">{{i.title}}</div>
-        <div class="resume-content__subtitle">{{i.subtitle}}</div>
+        <div class="resume-content__subtitle" v-if="i.subtitle">{{i.subtitle}}</div>
         <template v-if="i.textList && i.textList.length">
           <list-render :data="i.textList" :render="render" />
         </template>
@@ -15,6 +15,7 @@
 <script>
 import listRender from './list-render.vue'
 import datas from '../data.json'
+import resumeData from '../resume.json'
 export default {
   name: 'resume-content',
   components: { listRender },
@@ -24,7 +25,8 @@ export default {
     }
   },
   mounted() {
-    this.contentList = datas
+    const demo = true
+    this.contentList = demo ? datas : resumeData
   },
   methods: {
     render(h, data) {
