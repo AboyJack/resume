@@ -35,17 +35,37 @@ $w-1000: 1000px;
       background-color: white;
       .resume-header {
         .download-list {
+          display: none;
           text-align: right;
           padding-right: px-rem(50);
           &:before {
             border-left-width: 0px;
           }
         }
+        .more-list { 
+          display: block;
+        }
       }
     }
     @media ($media-min:$w-500) and ($media-max:$w-768){
+      .resume-header {
+        .download-list {
+          display: block;
+        }
+        .more-list { 
+          display: none;
+        }
+      }
     }
     @media ($media-width: $w-1000) {
+      .resume-header {
+        .download-list {
+          display: block;
+        }
+        .more-list { 
+          display: none;
+        }
+      }
     }
   }
 }

@@ -18,6 +18,11 @@
         <i class="iconfont iconpdf"></i>PDF
       </a>
     </div>
+    <div class="more-list">
+      <a>
+        <i class="iconfont iconmore"></i>
+      </a>
+    </div>
     <!-- <pdf></pdf> -->
   </div>
 </template>
@@ -129,6 +134,17 @@ export default {
       right: 10px;
       width: 10px;
       border-left: 1px solid $-split-color;
+    }
+  }
+  .more-list {
+    text-align: right;
+    padding-right: px-rem(50);
+    flex: 1;
+    &:before {
+      border-left-width: 0px;
+    }
+    i {
+      font-size: 20px;
     }
   }
   @media screen and ($media-min: $w-1000) {
