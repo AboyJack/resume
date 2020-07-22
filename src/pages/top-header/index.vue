@@ -164,9 +164,6 @@ export default {
     }
   }
   @media screen and ($media-max: $w-500) {
-    h1 {
-      padding-left: 40px;
-    }
     .download-list {
       text-align: right;
       padding-right: px-rem(50);
@@ -177,9 +174,6 @@ export default {
     @include show-more;
   }
   @media screen and ($media-min: $w-500) and ($media-max: $w-768) {
-    h1 {
-      padding-left: 40px;
-    }
     @include show-download-list;
   }
   @media screen and ($media-min: $w-1000) {
