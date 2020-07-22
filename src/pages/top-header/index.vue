@@ -144,13 +144,49 @@ export default {
       border-left-width: 0px;
     }
     i {
-      font-size: 20px;
+      font-size: px-rem(50);
     }
+  }
+  @mixin show-download-list {
+    .download-list {
+      display: block;
+    }
+    .more-list {
+      display: none;
+    }
+  }
+  @mixin show-more {
+    .download-list {
+      display: none;
+    }
+    .more-list {
+      display: block;
+    }
+  }
+  @media screen and ($media-max: $w-500) {
+    h1 {
+      padding-left: 40px;
+    }
+    .download-list {
+      text-align: right;
+      padding-right: px-rem(50);
+      &:before {
+        border-left-width: 0px;
+      }
+    }
+    @include show-more;
+  }
+  @media screen and ($media-min: $w-500) and ($media-max: $w-768) {
+    h1 {
+      padding-left: 40px;
+    }
+    @include show-download-list;
   }
   @media screen and ($media-min: $w-1000) {
     h1 {
       padding-left: 40px;
     }
+    @include show-download-list;
   }
 }
 </style>
