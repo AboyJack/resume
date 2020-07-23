@@ -32,12 +32,14 @@
   // import pdf from 'vue-pdf'
   // import pdf from '@/components/pdf';
   // import download from '@/utils/download'
-  import axios from 'axios'
+  import bus from '@/utils/event-bus'
+  import common from '../mixins/common'
   export default {
     name: 'top-header',
     components: {
       // pdf
     },
+    mixins: [common],
     // created () {
     //   this.pdfSrc = pdf.createLoadingTask(this.pdfSrc)
     //   console.log(this.pdfSrc)
@@ -45,10 +47,6 @@
     data () {
       return {
         title: 'PERSONAL RESUME',
-        phone: '18128845330',
-        email: '1105521265@qq.com',
-        pdfSrc:
-          'https://raw.githubusercontent.com/AboyJack/resume/master/src/assets/file/resume.pdf',
         htmlTitle: 'PERSONAL RESUME',
         pdfElement: '#app',
         showPopup: false
@@ -56,44 +54,13 @@
     },
     methods: {
       showPopupList () {
-        this.$parent.showPopup = !this.$parent.showPopup
+        bus.$emit('showPopup', !this.showPopup)
       },
-      copyText (val, title = '内容') {
-        this.$copyText(val)
-          .then(() => {
-            // console.log(res)
-            this.$toast.show(`${title}已复制到粘贴板`)
-          })
-          .catch(() => {
-            // console.log(err + '复制失败')
-          })
-      },
-      downloadPDF () {
-        // download(this.pdfSrc, 'PERSONAL RESUME.pdf')
-        // this.exportSavePdf()
-        axios
-          .post(this.pdfSrc, {
-            responseType: 'blob'
-          })
-          .then(res => {
-            let ele = document.createElement('a')
-            ele.download = 'PERSONAL RESUME.pdf' // 下载的名称
-            // ele.target = target // 规定在何处打开链接文档
-            ele.style.display = 'none'
-            // 字符内容转变成blob地址 Blob用法 https://developer.mozilla.org/zh-CN/docs/Web/API/Blob
-            let blob = new Blob([res.data])
-            ele.href = URL.createObjectURL(blob)
-            // console.log(blob, ele)
-            document.body.appendChild(ele)
-            ele.click()
-            document.body.removeChild(ele)
-          })
-      }
     }
   }
 </script>
 <style lang="scss" scoped>
-  @import "~@/assets/style/index.scss";
+  @import '~@/assets/style/index.scss';
   .resume-header {
     // position: absolute;
     // right: 0;
@@ -106,6 +73,7 @@
     line-height: px-rem(110);
     @include border-bottom-split;
     display: flex;
+    z-index: 999999;
     h1 {
       font-size: px-rem(30);
       padding-left: px-rem(50);
@@ -132,7 +100,7 @@
         top: 1px;
       }
       &:before {
-        content: "";
+        content: '';
         position: relative;
         right: 12px;
         width: 10px;

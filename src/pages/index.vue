@@ -2,9 +2,6 @@
   <section class="app">
     <top-header></top-header>
     <resume-content></resume-content>
-    <resume-popup v-model="showPopup">
-      123
-    </resume-popup>
   </section>
 </template>
 
@@ -15,7 +12,6 @@
     components: { topHeader, resumeContent },
     data () {
       return {
-        showPopup: false
       }
     },
     methods: {
@@ -24,6 +20,7 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '../assets/style/matching.scss';
   .app {
     height: 100%;
     width: 100%;

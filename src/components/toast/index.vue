@@ -43,6 +43,7 @@
     -o-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     background-color: rgba(243, 246, 254, 0.8);
+    z-index: 2020;
   }
   .fade-enter-active,
   .fade-leave-active {
