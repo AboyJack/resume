@@ -2,6 +2,9 @@
   <section class="app">
     <top-header></top-header>
     <resume-content></resume-content>
+    <resume-popup v-model="showPopup">
+      123
+    </resume-popup>
   </section>
 </template>
 
@@ -11,8 +14,13 @@
   export default {
     components: { topHeader, resumeContent },
     data () {
-      return {}
-    }
+      return {
+        showPopup: false
+      }
+    },
+    methods: {
+
+    },
   }
 </script>
 <style lang="scss" scoped>

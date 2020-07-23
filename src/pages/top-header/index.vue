@@ -20,7 +20,7 @@
       </a>
     </div>
     <div class="more-list">
-      <a>
+      <a @click="showPopupList">
         <i class="iconfont iconmore"></i>
       </a>
     </div>
@@ -50,10 +50,14 @@
         pdfSrc:
           'https://raw.githubusercontent.com/AboyJack/resume/master/src/assets/file/resume.pdf',
         htmlTitle: 'PERSONAL RESUME',
-        pdfElement: '#app'
+        pdfElement: '#app',
+        showPopup: false
       }
     },
     methods: {
+      showPopupList () {
+        this.$parent.showPopup = !this.$parent.showPopup
+      },
       copyText (val, title = '内容') {
         this.$copyText(val)
           .then(() => {

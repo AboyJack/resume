@@ -1,19 +1,27 @@
 <template>
-  <div>
+  <div class="popup">
     <transition @before-enter="beforeEnter"
                 @enter="enter"
                 @after-enter="afterEnter">
-      <div class="popup"
-           :class="positon ? `popup--${posion}` : 'center'"
-           v-show="isShow">
-        <sloat></sloat>
+      <div :class="position ? `popup--${posion}` : 'center'"
+           :style="{height: height, width: width, zIndex: 9}"
+           v-show="value">
+        <slot></slot>
       </div>
     </transition>
+    <div class="resume-overlay"
+         v-show="value"
+         @click="$parent.showPopup = false"></div>
   </div>
 </template>
 <script>
   export default {
+    name: 'popup',
     props: {
+      value: {
+        type: Boolean,
+        defalut: false
+      },
       position: {
         type: String,
         defalut: 'center'
@@ -21,11 +29,18 @@
       duration: {
         type: Number,
         defalut: 2000
-      }
+      },
+      height: {
+        type: String,
+        defalut: '100%'
+      },
+      width: {
+        type: String,
+        defalut: '50%'
+      },
     },
     data () {
       return {
-        isShow: false
       }
     },
     methods: {
