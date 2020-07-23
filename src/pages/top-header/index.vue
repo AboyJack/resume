@@ -1,6 +1,6 @@
 <template>
   <div class="resume-header">
-    <h1>{{title}}</h1>
+    <h1 v-once>PERSONAL RESUME</h1>
     <div class="download-list">
       <a href="tel:18128845330">
         <i class="iconfont iconicon-phone"></i>
@@ -40,10 +40,6 @@
       // pdf
     },
     mixins: [common],
-    // created () {
-    //   this.pdfSrc = pdf.createLoadingTask(this.pdfSrc)
-    //   console.log(this.pdfSrc)
-    // },
     data () {
       return {
         title: 'PERSONAL RESUME',
