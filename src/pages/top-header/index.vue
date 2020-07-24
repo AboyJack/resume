@@ -2,7 +2,7 @@
   <div class="resume-header">
     <h1 v-once>PERSONAL RESUME</h1>
     <div class="download-list">
-      <a href="tel:18128845330">
+      <a @click="copyText(phone, '联系电话')">
         <i class="iconfont iconicon-phone"></i>
         {{phone}}
       </a>
@@ -141,13 +141,14 @@
       @include show-more;
     }
     @media screen and ($media-min: $w-500) and ($media-max: $w-768) {
+    }
+    @media screen and ($media-min: $w-500) {
       @include show-download-list;
     }
     @media screen and ($media-min: $w-1000) {
       h1 {
         padding-left: 40px;
       }
-      @include show-download-list;
     }
   }
 </style>

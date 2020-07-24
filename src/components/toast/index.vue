@@ -17,6 +17,7 @@
     },
     methods: {
       show (message, duration = 2000) {
+        clearTimeout()
         this.message = message
         this.isShow = true
         setTimeout(() => {
@@ -33,6 +34,7 @@
     left: 50%;
     top: 50%;
     color: #9090aa;
+    font-weight: 500;
     padding: 8px;
     font-size: 14px;
     border-radius: 4px;
@@ -42,8 +44,9 @@
     -moz-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    background-color: rgba(243, 246, 254, 0.8);
-    z-index: 2020;
+    background-color: rgba(243, 246, 254, 0.9);
+    /* border: 1px solid #9090aa; */
+    z-index: 9999;
   }
   .fade-enter-active,
   .fade-leave-active {

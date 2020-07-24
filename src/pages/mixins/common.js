@@ -13,7 +13,7 @@ export default {
       this.$copyText(val)
         .then(() => {
           // console.log(res)
-          this.$toast.show(`${title}已复制到粘贴板`)
+          this.$toast.show(`${title}已复制到粘贴板`, 2500)
         })
         .catch(() => {
           // console.log(err + '复制失败')

@@ -27,19 +27,19 @@
            :get-container="getContainer"
            :style="{ width: '52%', height: '100%' }">
       <div class="contact">
-        <div class="download-list">
+        <div class="contact-list">
           <i class="iconfont iconicon-phone"></i>
           <a href="tel:18128845330">
             {{phone}}
           </a>
         </div>
-        <div class="download-list">
+        <div class="contact-list">
           <i class="iconfont iconemail"></i>
           <a @click="copyText(email, '邮箱')">
             {{email}}
           </a>
         </div>
-        <div class="download-list"
+        <div class="contact-list"
              ref="downloadList">
           <i class="iconfont iconpdf"></i>
           <a @click="downloadPDF">
@@ -98,10 +98,14 @@
     margin-top: px-rem(100);
     padding-top: px-rem(10);
     background-color: $-primary-7;
-    .download-list {
+    &-list {
       margin: px-rem(50) px-rem(40);
       a {
         color: $-font-title;
+        &:active {
+          color: $-font-color;
+          cursor: pointer;
+        }
       }
     }
   }
