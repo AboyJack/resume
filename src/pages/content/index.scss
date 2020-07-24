@@ -50,6 +50,12 @@ $content-height: px-rem(120);
     padding-top: 20px;
     line-height: 20px;
     @include custom-font-family($f-sans-serif);
+    ol {
+      list-style-type: decimal;
+    }
+    ul {
+      list-style-type: disc;
+    }
   }
 }
 @media screen and ($media-min:$w-1000){
