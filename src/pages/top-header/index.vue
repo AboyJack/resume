@@ -8,7 +8,7 @@
       </a>
     </div>
     <div class="download-list">
-      <a @click="copyText(email, '邮箱')">
+      <a href="mailto:1105521265@qq.com">
         <i class="iconfont iconemail"></i>
         {{email}}
       </a>
