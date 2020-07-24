@@ -76,3 +76,15 @@ a {
     }
   }
 }
+.van-dialog {
+  border-radius: 8px;
+  .van-dialog__header {
+    color: $-font-color;
+  }
+  .van-dialog__cancel {
+    color: $-primary-1;
+  }
+  .van-dialog__confirm {
+    color: $-font-title;
+  }
+}

@@ -26,7 +26,9 @@
            position="right"
            :overlay-style="{backgroundColor: 'rgba(0,0,0,.4)'}"
            :get-container="getContainer"
-           :style="{ width: '58%', height: '100%' }">
+           :style="{ width: '58%', height: '100%' }"
+           :duration="0.2"
+           @closed="closedPopup">
       <div class="contact">
         <div class="contact-list"
              @click.stop="callPhone">
@@ -61,8 +63,8 @@
   import 'vant/lib/popup/style'
   import bus from '@/utils/event-bus'
   import common from '../mixins/common'
-  import datas from '../data.json'
-  import resumeData from '../resume.json'
+  import datas from '../datas/data.json'
+  import resumeData from '../datas/resume.json'
   export default {
     name: 'resume-content',
     components: { listRender, popup },
@@ -78,6 +80,7 @@
       this.contentList = demo ? datas : resumeData
       bus.$on('showPopup', (val) => {
         this.showPopup = val
+        bus.$emit('hidePopup', val)
       })
     },
     methods: {
@@ -96,6 +99,13 @@
       },
       callPhone () {
         this.$refs.telephone.click()
+      },
+      closePopup () {
+        this.showPopup = false
+        bus.$emit('hidePopup', false)
+      },
+      closedPopup () {
+        bus.$emit('hidePopup', this.showPopup)
       }
     }
   }

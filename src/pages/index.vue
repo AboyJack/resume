@@ -12,15 +12,13 @@
     components: { topHeader, resumeContent },
     data () {
       return {
-      }
-    },
-    methods: {
 
+      }
     },
   }
 </script>
 <style lang="scss" scoped>
-  @import '../assets/style/matching.scss';
+  @import "../assets/style/matching.scss";
   .app {
     height: 100%;
     width: 100%;

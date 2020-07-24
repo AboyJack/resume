@@ -48,6 +48,11 @@
         showPopup: false
       }
     },
+    mounted () {
+      bus.$on('hidePopup', (val) => {
+        this.showPopup = val
+      })
+    },
     methods: {
       showPopupList () {
         bus.$emit('showPopup', !this.showPopup)

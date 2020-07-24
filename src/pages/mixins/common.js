@@ -1,5 +1,7 @@
 
 import axios from 'axios'
+import Dialog from 'vant/lib/dialog'
+import 'vant/lib/dialog/style'
 export default {
   data () {
     return {
@@ -19,27 +21,38 @@ export default {
           // console.log(err + '复制失败')
         })
     },
+    closePopup () {
+    },
     downloadPDF () {
-      // alert(123)
       // download(this.pdfSrc, 'PERSONAL RESUME.pdf')
       // this.exportSavePdf()
-      axios
-        .post(this.pdfSrc, {
-          responseType: 'blob'
-        })
-        .then(res => {
-          let ele = document.createElement('a')
-          ele.download = 'PERSONAL RESUME.pdf' // 下载的名称
-          // ele.target = target // 规定在何处打开链接文档
-          ele.style.display = 'none'
-          // 字符内容转变成blob地址 Blob用法 https://developer.mozilla.org/zh-CN/docs/Web/API/Blob
-          let blob = new Blob([res.data])
-          ele.href = URL.createObjectURL(blob)
-          // console.log(blob, ele)
-          document.body.appendChild(ele)
-          ele.click()
-          document.body.removeChild(ele)
-        })
+      this.closePopup()
+      Dialog.confirm({
+        title: '提示',
+        message: '确认下载PDF格式简历？',
+        // closeOnClickOverlay: true
+      }).then(() => {
+        // on confirm
+        axios
+          .post(this.pdfSrc, {
+            responseType: 'blob'
+          })
+          .then(res => {
+            let ele = document.createElement('a')
+            ele.download = 'PERSONAL RESUME.pdf' // 下载的名称
+            // ele.target = target // 规定在何处打开链接文档
+            ele.style.display = 'none'
+            // 字符内容转变成blob地址 Blob用法 https://developer.mozilla.org/zh-CN/docs/Web/API/Blob
+            let blob = new Blob([res.data])
+            ele.href = URL.createObjectURL(blob)
+            // console.log(blob, ele)
+            document.body.appendChild(ele)
+            ele.click()
+            document.body.removeChild(ele)
+          })
+      }).catch(() => {
+        // on cancel
+      })
     }
   }
 }
