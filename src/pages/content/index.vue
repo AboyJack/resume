@@ -24,8 +24,9 @@
     <popup v-model="showPopup"
            close-icon="close"
            position="right"
+           :overlay-style="{backgroundColor: 'rgba(0,0,0,.4)'}"
            :get-container="getContainer"
-           :style="{ width: '52%', height: '100%' }">
+           :style="{ width: '50%', height: '100%' }">
       <div class="contact">
         <div class="contact-list">
           <i class="iconfont iconicon-phone"></i>
@@ -93,13 +94,13 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import './index.scss';
+  @import "./index.scss";
   .contact {
     margin-top: px-rem(100);
     padding-top: px-rem(10);
     background-color: $-primary-7;
     &-list {
-      margin: px-rem(50) px-rem(40);
+      margin: px-rem(50) px-rem(30);
       a {
         color: $-font-title;
         &:active {
