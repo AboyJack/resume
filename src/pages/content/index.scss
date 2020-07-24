@@ -1,5 +1,5 @@
 @import "~@/assets/style/index.scss";
-$content-height: px-rem(120);
+$content-height: px-rem(110);
 .content {
   position: relative;
   overflow: auto;
@@ -35,19 +35,19 @@ $content-height: px-rem(120);
     @include split-line-before;
   }
   &__title {
-    font-size: px-rem(40);
+    font-size: 18px;
     font-weight: bold;
     @include resume-content;
     @include custom-font-family($f-montserrat);
   }
   &__subtitle {
     @extend .resume-content__title;
-    padding-top: px-rem(20);
-    font-size: px-rem(32);
+    padding-top: 16px;
+    font-size: 15px;
   }
   &__text {
     @include resume-content;
-    padding-top: 20px;
+    padding-top: 16px;
     line-height: 20px;
     @include custom-font-family($f-sans-serif);
     ol {
@@ -75,3 +75,25 @@ $content-height: px-rem(120);
   }
 }
 
+.mobile {
+  .resume-content {
+    padding-top: px-rem(50);
+    &__title {
+      font-size: px-rem(50);
+    }
+    &__subtitle {
+      padding-top: px-rem(50);
+      font-size: px-rem(38);
+      line-height: px-rem(50);
+      // @include custom-font-family($f-consolas);
+    }
+    &__text {
+      padding-top: px-rem(28);
+      line-height:  px-rem(50);
+      @include custom-font-family($f-consolas-andale);
+      ol, ul {
+        @include custom-font-family($f-consolas);
+      }
+    }
+  }
+}

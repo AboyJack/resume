@@ -1,17 +1,18 @@
 <template>
-  <div id="app">
+  <div id="app"
+       :class="$isMobile ? 'mobile' : ''">
     <router-view />
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App',
-  data() {
-    return {}
-  },
-  methods: {}
-}
+  export default {
+    name: 'App',
+    data () {
+      return {}
+    },
+    methods: {}
+  }
 </script>
 
 <style lang="scss">

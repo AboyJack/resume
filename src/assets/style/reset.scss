@@ -30,10 +30,13 @@ html,#app {
 body {
   @include custom-font-family($f-sans-serif);
   font-size: 14px;
+  line-height: 14px;
   background-color: #ffffff;
   @extend html;
+  .mobile {
+    font-size: 16px;
+  }
 }
-
 * {
   font-weight: 400;
 }

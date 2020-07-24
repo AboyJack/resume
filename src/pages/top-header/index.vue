@@ -56,7 +56,7 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '~@/assets/style/index.scss';
+  @import "~@/assets/style/index.scss";
   .resume-header {
     // position: absolute;
     // right: 0;
@@ -96,7 +96,7 @@
         top: 1px;
       }
       &:before {
-        content: '';
+        content: "";
         position: relative;
         right: 12px;
         width: 10px;
