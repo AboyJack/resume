@@ -107,6 +107,7 @@
       text-align: right;
       padding-right: px-rem(50);
       flex: 1;
+      cursor: pointer;
       &:before {
         border-left-width: 0px;
       }

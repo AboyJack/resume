@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="$isMobile ? 'mobile' : ''">
     <transition name="fade">
       <div v-if="isShow"
            class="toast">{{message}}</div>
@@ -44,7 +44,7 @@
     -moz-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    background-color: rgba(243, 246, 254, 0.9);
+    background-color: rgba(243, 246, 254, 0.98);
     /* border: 1px solid #9090aa; */
     z-index: 9999;
   }
@@ -55,5 +55,11 @@
   .fade-enter,
   .fade-leave-to {
     opacity: 0;
+  }
+  .mobile {
+    .toast {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #f1f5fa;
+    }
   }
 </style>

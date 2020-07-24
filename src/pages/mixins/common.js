@@ -20,6 +20,7 @@ export default {
         })
     },
     downloadPDF () {
+      // alert(123)
       // download(this.pdfSrc, 'PERSONAL RESUME.pdf')
       // this.exportSavePdf()
       axios

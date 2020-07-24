@@ -26,24 +26,28 @@
            position="right"
            :overlay-style="{backgroundColor: 'rgba(0,0,0,.4)'}"
            :get-container="getContainer"
-           :style="{ width: '50%', height: '100%' }">
+           :style="{ width: '58%', height: '100%' }">
       <div class="contact">
-        <div class="contact-list">
+        <div class="contact-list"
+             @click.stop="callPhone">
           <i class="iconfont iconicon-phone"></i>
-          <a href="tel:18128845330">
+          <a href="tel:18128845330"
+             ref="telephone">
             {{phone}}
           </a>
         </div>
-        <div class="contact-list">
+        <div class="contact-list"
+             @click="copyText(email, '邮箱')">
           <i class="iconfont iconemail"></i>
-          <a @click="copyText(email, '邮箱')">
+          <a>
             {{email}}
           </a>
         </div>
         <div class="contact-list"
+             @click="downloadPDF"
              ref="downloadList">
           <i class="iconfont iconpdf"></i>
-          <a @click="downloadPDF">
+          <a>
             PDF
           </a>
         </div>
@@ -89,6 +93,9 @@
       },
       getContainer () {
         return document.querySelector('.content');
+      },
+      callPhone () {
+        this.$refs.telephone.click()
       }
     }
   }
@@ -96,17 +103,23 @@
 <style lang="scss" scoped>
   @import "./index.scss";
   .contact {
-    margin-top: px-rem(100);
+    margin-top: px-rem(90);
     padding-top: px-rem(10);
     background-color: $-primary-7;
+    @include custom-font-family($f-consolas);
+    cursor: pointer;
+    -webkit-appearance: none;
     &-list {
-      margin: px-rem(50) px-rem(30);
+      padding: px-rem(30) px-rem(30);
+      border-bottom: 1px solid $-split-color;
+      width: 100%;
       a {
         color: $-font-title;
-        &:active {
-          color: $-font-color;
-          cursor: pointer;
-        }
+        width: 100%;
+      }
+      &:active {
+        background-color: $-primary-1;
+        cursor: pointer;
       }
     }
   }
