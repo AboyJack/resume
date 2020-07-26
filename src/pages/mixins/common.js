@@ -21,6 +21,18 @@ export default {
           // console.log(err + '复制失败')
         })
     },
+    sendEmail () {
+      // Dialog.confirm({
+      //   title: '提示',
+      //   message: '确认发送邮件至邮箱？',
+      //   // closeOnClickOverlay: true
+      // }).then(() => {
+      //   console.log(e.target)
+      //   e.target.click()
+      // }).catch(() => {
+      //   // on cancel
+      // })
+    },
     closePopup () { },
     downloadPDF () {
       // download(this.pdfSrc, 'PERSONAL RESUME.pdf')
@@ -33,7 +45,7 @@ export default {
       }).then(() => {
         // on confirm
         axios
-          .post('http://localhost:8080/static/resume.pdf', {
+          .get('http://localhost:8080/static/resume.pdf', {
             responseType: 'blob'
           })
           .then(res => {

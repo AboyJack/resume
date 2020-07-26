@@ -1,6 +1,6 @@
 <template>
   <div class="resume-header">
-    <h1 v-once>PERSONAL RESUME</h1>
+    <h1 v-once>personal resume</h1>
     <div class="download-list">
       <a @click="copyText(phone, '联系电话')">
         <i class="iconfont iconicon-phone"></i>
@@ -76,6 +76,8 @@
     display: flex;
     z-index: 999999;
     h1 {
+      text-transform: uppercase;
+      /* letter-spacing: 1px; */
       font-size: px-rem(30);
       padding-left: px-rem(50);
       color: $-font-title;
