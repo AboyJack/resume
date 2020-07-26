@@ -1,19 +1,31 @@
 <template>
   <div class="content">
-    <template v-for="i of contentList">
+    <template v-if="wideStyle">
+      <div>
+
+      </div>
+    </template>
+    <template v-for="i of contentList"
+              v-else>
       <div class="resume-content"
+           :class="i.title ? '' : 'sub-slipt'"
            :key="i.id">
+        <!-- 大标题 -->
         <div class="resume-content__title"
              v-if="i.title">{{i.title}}</div>
+        <!-- 副标题 -->
         <div class="resume-content__subtitle"
              v-if="i.subtitle">{{i.subtitle}}</div>
+        <!-- 单文本 -->
         <template v-if="i.text && typeof i.text === 'string'">
           <div class="resume-content__text">{{i.text}}</div>
         </template>
+        <!-- 列表文本 -->
         <template v-if="i.textList && i.textList.length">
           <list-render :data="i.textList"
                        :render="render" />
         </template>
+        <!-- 数组文本 -->
         <template v-if="i.text && typeof i.text !== 'string' && i.text.length">
           <div class="resume-content__text"
                v-for="(text, index) in i.text"
@@ -72,7 +84,14 @@
     data () {
       return {
         contentList: [],
-        showPopup: false
+        showPopup: false,
+        wideStyle: false
+      }
+    },
+    beforeCreate () {
+      this.wideStyle = document.body.offsetWidth > 768
+      window.onresize = () => {
+        this.wideStyle = document.body.offsetWidth > 768
       }
     },
     mounted () {

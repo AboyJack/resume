@@ -14,7 +14,7 @@ $content-height: px-rem(110);
     color: $-font-color;
   }
   @mixin split-line-before {
-    &:before {
+    &::before {
       display: block;
       content: "";
       background: -webkit-linear-gradient(
@@ -53,10 +53,17 @@ $content-height: px-rem(110);
     @include custom-font-family($f-sans-serif);
     ol {
       list-style-type: decimal;
+      margin-left: 5px;
     }
     ul {
       list-style-type: disc;
     }
+  }
+}
+.sub-slipt {
+  &::before {
+    width: 90% !important;
+    margin-left: 40px;
   }
 }
 @media screen and ($media-min:$w-1000){
