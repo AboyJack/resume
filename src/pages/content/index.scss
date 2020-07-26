@@ -49,6 +49,7 @@ $content-height: px-rem(110);
     @include resume-content;
     padding-top: 16px;
     line-height: 20px;
+    letter-spacing: 1px;
     @include custom-font-family($f-sans-serif);
     ol {
       list-style-type: decimal;
