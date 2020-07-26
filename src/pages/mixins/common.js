@@ -21,8 +21,7 @@ export default {
           // console.log(err + '复制失败')
         })
     },
-    closePopup () {
-    },
+    closePopup () { },
     downloadPDF () {
       // download(this.pdfSrc, 'PERSONAL RESUME.pdf')
       // this.exportSavePdf()
@@ -34,7 +33,7 @@ export default {
       }).then(() => {
         // on confirm
         axios
-          .post(this.pdfSrc, {
+          .post('http://localhost:8080/static/resume.pdf', {
             responseType: 'blob'
           })
           .then(res => {
@@ -52,6 +51,8 @@ export default {
           })
       }).catch(() => {
         // on cancel
+        this.showPopup = true
+        this.$bus.$emit('hidePopup', true)
       })
     }
   }

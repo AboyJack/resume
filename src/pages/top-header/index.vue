@@ -32,7 +32,7 @@
   // import pdf from 'vue-pdf'
   // import pdf from '@/components/pdf';
   // import download from '@/utils/download'
-  import bus from '@/utils/event-bus'
+  // import bus from '@/utils/event-bus'
   import common from '../mixins/common'
   export default {
     name: 'top-header',
@@ -49,19 +49,19 @@
       }
     },
     mounted () {
-      bus.$on('hidePopup', (val) => {
+      this.$bus.$on('hidePopup', (val) => {
         this.showPopup = val
       })
     },
     methods: {
       showPopupList () {
-        bus.$emit('showPopup', !this.showPopup)
+        this.$bus.$emit('showPopup', !this.showPopup)
       },
     }
   }
 </script>
 <style lang="scss" scoped>
-  @import "~@/assets/style/index.scss";
+  @import '~@/assets/style/index.scss';
   .resume-header {
     // position: absolute;
     // right: 0;
@@ -101,7 +101,7 @@
         top: 1px;
       }
       &:before {
-        content: "";
+        content: '';
         position: relative;
         right: 12px;
         width: 10px;

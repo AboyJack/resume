@@ -7,10 +7,12 @@ import { isMobile } from './utils/mixin'
 // import htmlToPdf from './utils/html-top-pdf'
 import vueClipboard2 from 'vue-clipboard2'
 import toast from './components/toast/index.js'
+import bus from '@/utils/event-bus'
 
 Vue.config.productionTip = false
 
 Vue.prototype.$isMobile = isMobile()
+Vue.prototype.$bus = bus
 
 // Vue.component('resume-popup', popup)
 // Vue.use(htmlToPdf)

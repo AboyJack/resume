@@ -61,7 +61,7 @@
   import listRender from './list-render.vue'
   import popup from 'vant/lib/popup'
   import 'vant/lib/popup/style'
-  import bus from '@/utils/event-bus'
+  // import bus from '@/utils/event-bus'
   import common from '../mixins/common'
   import datas from '../datas/data.json'
   import resumeData from '../datas/resume.json'
@@ -78,9 +78,9 @@
     mounted () {
       const demo = false
       this.contentList = demo ? datas : resumeData
-      bus.$on('showPopup', (val) => {
+      this.$bus.$on('showPopup', (val) => {
         this.showPopup = val
-        bus.$emit('hidePopup', val)
+        this.$bus.$emit('hidePopup', val)
       })
     },
     methods: {
@@ -102,16 +102,16 @@
       },
       closePopup () {
         this.showPopup = false
-        bus.$emit('hidePopup', false)
+        this.$bus.$emit('hidePopup', false)
       },
       closedPopup () {
-        bus.$emit('hidePopup', this.showPopup)
+        this.$bus.$emit('hidePopup', this.showPopup)
       }
     }
   }
 </script>
 <style lang="scss" scoped>
-  @import "./index.scss";
+  @import './index.scss';
   .contact {
     margin-top: px-rem(90);
     padding-top: px-rem(10);
