@@ -7,28 +7,116 @@ $content-height: px-rem(110);
   height: calc(100% - #{$content-height});
   // @include scroll-bar;
 }
+.resume-wide {
+  @mixin split-line {
+    display: block;
+    content: "";
+    @include box-shadow(0 1px 0 rgba(255, 255, 255, 0.4));
+    height: 1px;
+    position: relative;
+    width: 100%;
+    top: -20px;
+  }
+  @mixin split-line-left {
+    @include split-line;
+    background: -webkit-linear-gradient(
+      left,
+      #dfe2e7 100%,
+      rgba(223, 226, 231, 0) 100%
+    );
+  }
+  @mixin split-line-right {
+    background: -webkit-linear-gradient(
+      left,
+      #dfe2e7 80%,
+      rgba(223, 226, 231, 0) 100%
+    );
+    left: -20px;
+    margin-left: -20px;
+    @include split-line;
+  }
+  @mixin text-left {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  &-content {
+    display: flex;
+    &_title {
+      padding: 20px 0px;
+      &:not(:last-child) {
+        border-right: 1px solid $-split-color;
+        box-shadow:  0 0 3px $-split-color; 
+        &::before {
+          @include split-line-left;
+        }
+      }
+      &:not(:first-child) {
+        &::before {
+          @include split-line-right;
+        }
+      }
+      width: 520px;
+      font-size: 18px;
+      color: $-font-color;
+      @include custom-font-family($f-montserrat);
+      span {
+        font-weight: bold;
+        @include text-left;
+      }
+      .sub_title {
+        padding-top: 16px;
+        font-size: 15px;
+        font-weight: bold;
+        @include text-left;
+      }
+      .content_text {
+        font-size: 14px;
+        padding-top: 16px;
+        @include text-left;
+        line-height: 20px;
+        letter-spacing: 1px;
+        @include custom-font-family($f-sans-serif);
+        ol {
+          list-style-type: decimal;
+          margin-left: 18px;
+        }
+        ul {
+          list-style-type: disc;
+          margin-left: 18px;
+        }
+      }
+    }
+  }
+  .first-content_title {
+      &::before {
+        height: 0px;
+      }
+  }
+}
 .resume-content {
   padding-top: 30px;
   @mixin resume-content {
     padding: 0 px-rem(50);
     color: $-font-color;
   }
+  @mixin split-line {
+    display: block;
+    content: "";
+    background: -webkit-linear-gradient(
+      left,
+      #dfe2e7 80%,
+      rgba(223, 226, 231, 0) 100%
+    );
+    @include box-shadow(0 1px 0 rgba(255, 255, 255, 0.4));
+    height: 1px;
+    position: relative;
+    width: 100%;
+    left: -20px;
+    top: -15px;
+  }
   @mixin split-line-before {
     &::before {
-      display: block;
-      content: "";
-      background: -webkit-linear-gradient(
-        left,
-        #dfe2e7 80%,
-        rgba(223, 226, 231, 0) 100%
-      );
-      @include box-shadow(0 1px 0 rgba(255, 255, 255, 0.4));
-      height: 1px;
-      position: relative;
-      width: 100%;
-      left: -20px;
-      top: -15px;
-      // margin-left: px-rem(50);
+      @include split-line;
     }
   }
   &:not(:first-child) {

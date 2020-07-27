@@ -1,8 +1,35 @@
 <template>
   <div class="content">
     <template v-if="wideStyle">
-      <div>
-
+      <div class="resume-wide">
+        <div class="resume-wide-content"
+             v-for="(i, index) in contentList"
+             :key="i.id">
+          <div class="resume-wide-content_title"
+               :class="index === 0 ? 'first-content_title' : ''"
+               v-for="t in i.titleList"
+               :key="t.id">
+            <span>{{t.title}}</span>
+            <div class="sub_title"
+                 v-if="t.subtitle">{{t.subtitle}}</div>
+            <div class="content_text">
+              {{t.text}}
+              <ol v-if="t.list && t.list === 'ol'">
+                <li v-for="(l, idx) in t.listText"
+                    :key="idx">{{l}}</li>
+              </ol>
+              <ul v-if="t.list && t.list === 'ul'">
+                <li v-for="(l, idx) in t.listText"
+                    :key="idx">{{l}}</li>
+              </ul>
+            </div>
+            <template v-if="t.textArray">
+              <div class="content_text"
+                   v-for="ta in t.textArray"
+                   :key="ta">{{ta}}</div>
+            </template>
+          </div>
+        </div>
       </div>
     </template>
     <template v-for="i of contentList"
@@ -76,6 +103,7 @@
   // import bus from '@/utils/event-bus'
   import common from '../mixins/common'
   import datas from '../datas/data.json'
+  import pcData from '../datas/pc-resume.json'
   import resumeData from '../datas/resume.json'
   export default {
     name: 'resume-content',
@@ -88,15 +116,17 @@
         wideStyle: false
       }
     },
-    beforeCreate () {
+    created () {
       this.wideStyle = document.body.offsetWidth > 768
       window.onresize = () => {
         this.wideStyle = document.body.offsetWidth > 768
+        this.contentList = this.wideStyle ? pcData : resumeData
       }
     },
     mounted () {
       const demo = false
       this.contentList = demo ? datas : resumeData
+      this.contentList = this.wideStyle ? pcData : resumeData
       this.$bus.$on('showPopup', (val) => {
         this.showPopup = val
         this.$bus.$emit('hidePopup', val)
