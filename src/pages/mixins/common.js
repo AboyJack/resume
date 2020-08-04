@@ -2,8 +2,8 @@
 // import axios from 'axios'
 import Dialog from 'vant/lib/dialog'
 import 'vant/lib/dialog/style'
-import html2canvas from 'html2canvas'
-import printJS from 'print-js'
+// import html2canvas from 'html2canvas'
+// import printJS from 'print-js'
 export default {
   data () {
     return {
@@ -63,18 +63,19 @@ export default {
         //     ele.click()
         //     document.body.removeChild(ele)
         //   })
-        html2canvas(document.body, {
-          backgroundColor: null,
-          useCORS: true,
-          windowHeight: document.body.scrollHeight
-        }).then(canvas => {
-          const url = canvas.toDataURL()
-          printJS({
-            printable: url,
-            type: 'image',
-            documentTitle: '彭杰-个人简历'
-          })
-        })
+        // html2canvas(document.body, {
+        //   backgroundColor: null,
+        //   useCORS: true,
+        //   windowHeight: document.body.scrollHeight
+        // }).then(canvas => {
+        //   const url = canvas.toDataURL()
+        //   printJS({
+        //     printable: url,
+        //     type: 'image',
+        //     documentTitle: '彭杰-个人简历'
+        //   })
+        // })
+        this.printPDF()
       }).catch(() => {
         // on cancel
         this.showPopup = true

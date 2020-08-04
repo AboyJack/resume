@@ -16,11 +16,13 @@
               {{t.text}}
               <ol v-if="t.list && t.list === 'ol'">
                 <li v-for="(l, idx) in t.listText"
-                    :key="idx">{{l}}</li>
+                    :key="idx"
+                    v-html="l"></li>
               </ol>
               <ul v-if="t.list && t.list === 'ul'">
                 <li v-for="(l, idx) in t.listText"
-                    :key="idx">{{l}}</li>
+                    :key="idx"
+                    v-html="l"></li>
               </ul>
             </div>
             <template v-if="t.textArray">

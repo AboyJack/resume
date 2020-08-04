@@ -24,12 +24,17 @@
         <i class="iconfont iconmore"></i>
       </a>
     </div>
-    <!-- <pdf></pdf> -->
+    <Pdf ref="myPdf"
+         v-show="false"
+         v-for="i in numPages"
+         :key="i"
+         :src="src"
+         :page="i"></Pdf>
   </div>
 </template>
 <script>
   // import pdfFile from '@/assets/file/resume.pdf'
-  // import pdf from 'vue-pdf'
+  import Pdf from 'vue-pdf'
   // import pdf from '@/components/pdf';
   // import download from '@/utils/download'
   // import bus from '@/utils/event-bus'
@@ -37,7 +42,7 @@
   export default {
     name: 'top-header',
     components: {
-      // pdf
+      Pdf
     },
     mixins: [common],
     data () {
@@ -45,18 +50,28 @@
         title: 'PERSONAL RESUME',
         htmlTitle: 'PERSONAL RESUME',
         pdfElement: '#app',
-        showPopup: false
+        showPopup: false,
+        src: '',
+        numPages: undefined
       }
     },
     mounted () {
       this.$bus.$on('hidePopup', (val) => {
         this.showPopup = val
       })
+      this.src = Pdf.createLoadingTask(`${window.location.origin}/resume.pdf`)
+      this.src.promise.then(pdf => {
+        this.numPages = pdf.numPages
+      })
     },
     methods: {
       showPopupList () {
         this.$bus.$emit('showPopup', !this.showPopup)
       },
+      printPDF () {
+        console.log(this.$refs.myPdf)
+        this.$refs.myPdf && this.$refs.myPdf.print()
+      }
     }
   }
 </script>
