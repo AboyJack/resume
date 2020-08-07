@@ -43,13 +43,13 @@ $content-height: px-rem(110);
     display: flex;
     &_title {
       padding: 20px 0px;
-      &:not(:last-child) {
+      // &:not(:last-child) {
         border-right: 1px solid $-split-color;
         box-shadow:  0 0 3px $-split-color; 
         &::before {
           @include split-line-left;
         }
-      }
+      // }
       &:not(:first-child) {
         &::before {
           @include split-line-right;
@@ -79,10 +79,15 @@ $content-height: px-rem(110);
         ol {
           list-style-type: decimal;
           margin-left: 18px;
+          padding-top: 16px;
         }
         ul {
           list-style-type: disc;
           margin-left: 18px;
+          padding-top: 16px;
+        }
+        li {
+          margin-bottom: 10px;
         }
       }
     }

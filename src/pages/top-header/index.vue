@@ -69,7 +69,7 @@
         this.$bus.$emit('showPopup', !this.showPopup)
       },
       printPDF () {
-        console.log(this.$refs.myPdf)
+        // console.log(this.$refs.myPdf)
         this.$refs.myPdf && this.$refs.myPdf.print()
       }
     }
