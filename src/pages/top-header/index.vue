@@ -14,8 +14,10 @@
       </a>
     </div>
     <div class="download-list"
-         ref="downloadList">
-      <a @click="downloadPDF">
+         ref="downloadList"
+         @click="downloadPDF">
+      <a ref="pdfHref"
+         href="https://raw.githubusercontent.com/AboyJack/resume/master/docs/resume.pdf">
         <i class="iconfont iconpdf"></i>PDF
       </a>
     </div>

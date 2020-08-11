@@ -40,6 +40,7 @@ export default {
       // download(this.pdfSrc, 'PERSONAL RESUME.pdf')
       // this.exportSavePdf()
       this.closePopup()
+      let _self = this
       Dialog.confirm({
         title: '提示',
         message: '确认下载PDF格式简历？',
@@ -75,7 +76,8 @@ export default {
         //     documentTitle: '彭杰-个人简历'
         //   })
         // })
-        this.printPDF()
+        // this.printPDF()
+        _self.$refs.pdfHref.click()
       }).catch(() => {
         // on cancel
         this.showPopup = true

@@ -14,12 +14,14 @@
                  v-if="t.subtitle">{{t.subtitle}}</div>
             <div class="content_text">
               {{t.text}}
-              <ol v-if="t.list && t.list === 'ol'">
+              <ol v-if="t.list && t.list === 'ol'"
+                  :style="{paddingTop: t.text ? '16px' : '0px'}">
                 <li v-for="(l, idx) in t.listText"
                     :key="idx"
                     v-html="l"></li>
               </ol>
-              <ul v-if="t.list && t.list === 'ul'">
+              <ul v-if="t.list && t.list === 'ul'"
+                  :style="{paddingTop: t.text ? '16px' : '0px'}">
                 <li v-for="(l, idx) in t.listText"
                     :key="idx"
                     v-html="l"></li>
@@ -90,7 +92,8 @@
              @click="downloadPDF"
              ref="downloadList">
           <i class="iconfont iconpdf"></i>
-          <a>
+          <a href="https://raw.githubusercontent.com/AboyJack/resume/master/docs/resume.pdf"
+             ref="pdfHref">
             PDF
           </a>
         </div>
@@ -146,7 +149,7 @@
         )
       },
       getContainer () {
-        return document.querySelector('.content');
+        return document.querySelector('.content')
       },
       callPhone () {
         this.$refs.telephone.click()
