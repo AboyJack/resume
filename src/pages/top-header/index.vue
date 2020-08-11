@@ -21,7 +21,7 @@
         <i class="iconfont iconpdf"></i>PDF
       </a> -->
       <a ref="pdfHref"
-         href="https://gitee.com/jack_peng/resume/raw/master/docs/resume.pdf">
+         href="https://gitee.com/jack_peng/resume-doc/raw/master/doc/resume.pdf">
         <i class="iconfont iconpdf"></i>PDF
       </a>
     </div>
