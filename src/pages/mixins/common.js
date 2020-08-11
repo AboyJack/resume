@@ -1,6 +1,6 @@
 
 // import axios from 'axios'
-import Dialog from 'vant/lib/dialog'
+// import Dialog from 'vant/lib/dialog'
 import 'vant/lib/dialog/style'
 // import html2canvas from 'html2canvas'
 // import printJS from 'print-js'
@@ -41,48 +41,48 @@ export default {
       // this.exportSavePdf()
       this.closePopup()
       let _self = this
-      Dialog.confirm({
-        title: '提示',
-        message: '确认下载PDF格式简历？',
-        // closeOnClickOverlay: true
-      }).then(() => {
-        // on confirm
-        // axios
-        //   .get('http://localhost:8080/static/resume.pdf', {
-        //     responseType: 'blob'
-        //   })
-        //   .then(res => {
-        //     let ele = document.createElement('a')
-        //     ele.download = 'PERSONAL RESUME.pdf' // 下载的名称
-        //     // ele.target = target // 规定在何处打开链接文档
-        //     ele.style.display = 'none'
-        //     // 字符内容转变成blob地址 Blob用法 https://developer.mozilla.org/zh-CN/docs/Web/API/Blob
-        //     let blob = new Blob([res.data])
-        //     ele.href = URL.createObjectURL(blob)
-        //     // console.log(blob, ele)
-        //     document.body.appendChild(ele)
-        //     ele.click()
-        //     document.body.removeChild(ele)
-        //   })
-        // html2canvas(document.body, {
-        //   backgroundColor: null,
-        //   useCORS: true,
-        //   windowHeight: document.body.scrollHeight
-        // }).then(canvas => {
-        //   const url = canvas.toDataURL()
-        //   printJS({
-        //     printable: url,
-        //     type: 'image',
-        //     documentTitle: '彭杰-个人简历'
-        //   })
-        // })
-        // this.printPDF()
-        _self.$refs.pdfHref.click()
-      }).catch(() => {
-        // on cancel
-        this.showPopup = true
-        this.$bus.$emit('hidePopup', true)
-      })
+      // Dialog.confirm({
+      //   title: '提示',
+      //   message: '确认下载PDF格式简历？',
+      //   // closeOnClickOverlay: true
+      // }).then(() => {
+      // on confirm
+      // axios
+      //   .get('http://localhost:8080/static/resume.pdf', {
+      //     responseType: 'blob'
+      //   })
+      //   .then(res => {
+      //     let ele = document.createElement('a')
+      //     ele.download = 'PERSONAL RESUME.pdf' // 下载的名称
+      //     // ele.target = target // 规定在何处打开链接文档
+      //     ele.style.display = 'none'
+      //     // 字符内容转变成blob地址 Blob用法 https://developer.mozilla.org/zh-CN/docs/Web/API/Blob
+      //     let blob = new Blob([res.data])
+      //     ele.href = URL.createObjectURL(blob)
+      //     // console.log(blob, ele)
+      //     document.body.appendChild(ele)
+      //     ele.click()
+      //     document.body.removeChild(ele)
+      //   })
+      // html2canvas(document.body, {
+      //   backgroundColor: null,
+      //   useCORS: true,
+      //   windowHeight: document.body.scrollHeight
+      // }).then(canvas => {
+      //   const url = canvas.toDataURL()
+      //   printJS({
+      //     printable: url,
+      //     type: 'image',
+      //     documentTitle: '彭杰-个人简历'
+      //   })
+      // })
+      // this.printPDF()
+      _self.$refs.pdfHref.click()
+      // }).catch(() => {
+      //   // on cancel
+      //   this.showPopup = true
+      //   this.$bus.$emit('hidePopup', true)
+      // })
     }
   }
 }

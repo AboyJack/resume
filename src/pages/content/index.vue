@@ -92,7 +92,7 @@
              @click="downloadPDF"
              ref="downloadList">
           <i class="iconfont iconpdf"></i>
-          <a href="https://raw.githubusercontent.com/AboyJack/resume/master/docs/resume.pdf"
+          <a href="https://gitee.com/jack_peng/resume/raw/master/docs/resume.pdf"
              ref="pdfHref">
             PDF
           </a>

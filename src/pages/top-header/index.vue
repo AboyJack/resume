@@ -16,8 +16,12 @@
     <div class="download-list"
          ref="downloadList"
          @click="downloadPDF">
-      <a ref="pdfHref"
+      <!-- <a ref="pdfHref"
          href="https://raw.githubusercontent.com/AboyJack/resume/master/docs/resume.pdf">
+        <i class="iconfont iconpdf"></i>PDF
+      </a> -->
+      <a ref="pdfHref"
+         href="https://gitee.com/jack_peng/resume/raw/master/docs/resume.pdf">
         <i class="iconfont iconpdf"></i>PDF
       </a>
     </div>
