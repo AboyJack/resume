@@ -143,7 +143,7 @@
         return (
           <tag>
             {data.text.map(el => {
-              return <li style={{ marginBottom: '10px' }}>{el}</li>
+              return <li domProps={{ innerHTML: el }} style={{ marginBottom: '10px' }}></li>
             })}
           </tag>
         )
