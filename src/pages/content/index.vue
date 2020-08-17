@@ -92,7 +92,7 @@
              @click="downloadPDF"
              ref="downloadList">
           <i class="iconfont iconpdf"></i>
-          <a href="https://gitee.com/jack_peng/resume-doc/raw/master/doc/resume.pdf"
+          <a href="//gitee.com/jack_peng/resume-doc/raw/master/doc/%E5%89%8D%E7%AB%AF-%E5%BD%AD%E6%9D%B0-%E7%AE%80%E5%8E%86.pdf"
              ref="pdfHref">
             PDF
           </a>
