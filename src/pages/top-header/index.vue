@@ -8,7 +8,7 @@
       </a>
     </div>
     <div class="download-list">
-      <a href="mailto:1105521265@qq.com">
+      <a href="mailto:18128845330@163.com">
         <i class="iconfont iconemail"></i>
         {{email}}
       </a>
@@ -21,7 +21,7 @@
         <i class="iconfont iconpdf"></i>PDF
       </a> -->
       <a ref="pdfHref"
-         href="//gitee.com/jack_peng/resume-doc/raw/master/doc/%E5%89%8D%E7%AB%AF-%E5%BD%AD%E6%9D%B0-%E7%AE%80%E5%8E%86.pdf">
+         href="//raw.githubusercontent.com/AboyJack/resume/master/src/assets/file/resume.pdf">
         <i class="iconfont iconpdf"></i>PDF
       </a>
     </div>

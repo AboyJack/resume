@@ -8,8 +8,8 @@ export default {
   data () {
     return {
       phone: '18128845330',
-      email: '1105521265@qq.com',
-      pdfSrc: 'https://raw.githubusercontent.com/AboyJack/resume/master/src/assets/file/resume.pdf',
+      email: '18128845330@163.com',
+      pdfSrc: '//raw.githubusercontent.com/AboyJack/resume/master/src/assets/file/resume.pdf',
     }
   },
   methods: {
